@@ -64,7 +64,7 @@ gulp.task('reload', function () {
 });
  
 gulp.task('watch', function () {
-  gulp.watch(['./src/**/*'], ['lint', 'reload']);
+  gulp.watch(['./src/**/*'], ['reload']);
 });
 
 gulp.task('svg2json', function() {

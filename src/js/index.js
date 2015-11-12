@@ -1,9 +1,22 @@
-import Region from './region.js';
+import Renderer from './renderer';
+import App from './display-objects/app';
+import Region from './region';
+import {Texture} from 'pixi.js';
 
-let regions;
+const renderer = new Renderer(800, 600);
+const app = new App(800, 600);
 
-function init () {
+document.body.appendChild(renderer.view);
 
-}
+renderer.addRenderable(app);
 
-init();
+renderer.start();
+
+
+
+
+
+
+
+
+

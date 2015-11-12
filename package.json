@@ -47,7 +47,10 @@
       "packages": "src/lib"
     },
     "dependencies": {
-      "lodash": "npm:lodash@^3.10.1"
+      "jspm/nodelibs-events": "github:jspm/nodelibs-events@^0.1.1",
+      "lodash": "npm:lodash@^3.10.1",
+      "nodelibs": "github:jspm/nodelibs@^0.1.0",
+      "pixi.js": "npm:pixi.js@^3.0.8"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
