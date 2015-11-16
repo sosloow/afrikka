@@ -47,6 +47,7 @@
       "packages": "src/lib"
     },
     "dependencies": {
+      "fabric": "npm:fabric@^1.6.0-rc.1",
       "jspm/nodelibs-events": "github:jspm/nodelibs-events@^0.1.1",
       "lodash": "npm:lodash@^3.10.1",
       "nodelibs": "github:jspm/nodelibs@^0.1.0",

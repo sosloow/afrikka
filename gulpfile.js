@@ -6,6 +6,7 @@ var replace = require('gulp-replace');
 var minifyHtml = require('gulp-minify-html');
 var uglify = require('gulp-uglify');
 var del = require('del');
+var Server = require('karma').Server;
 
 gulp.task("default", ['connect', 'watch']);
 
@@ -62,9 +63,16 @@ gulp.task('reload', function () {
   gulp.src('./dist/**/*')
     .pipe(connect.reload());
 });
+
+gulp.task('test', function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
  
 gulp.task('watch', function () {
-  gulp.watch(['./src/**/*'], ['reload']);
+  gulp.watch(['./src/**/*'], ['lint', 'test', 'reload']);
 });
 
 gulp.task('svg2json', function() {

@@ -1,22 +1,34 @@
-import Renderer from './renderer';
-import App from './display-objects/app';
 import Region from './region';
-import {Texture} from 'pixi.js';
+import countries from './constants/map';
+import {fabric} from 'fabric';
 
-const renderer = new Renderer(800, 600);
-const app = new App(800, 600);
+let {Canvas} = fabric;
 
-document.body.appendChild(renderer.view);
+let canvas = new Canvas('appCanvas', {
+  height: 1500,
+  width: 1300,
+  selection: false
+});
 
-renderer.addRenderable(app);
+canvas.on('mouse:over', function(e) {
+  if (typeof e.target.onMouseOut != 'function') {
+    return;
+  }
 
-renderer.start();
-
-
-
-
-
-
-
+  e.target.onMouseIn();
+  canvas.renderAll();
+});
 
 
+canvas.on('mouse:out', function(e) {
+  if (typeof e.target.onMouseOut != 'function') {
+    return;
+  }
+
+  e.target.onMouseOut();
+  canvas.renderAll();
+});
+
+let regions = countries.map((country) => new Region(country));
+
+regions.forEach ((region) => canvas.add(region));
