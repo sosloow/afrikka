@@ -1,4 +1,10 @@
-canvas {
-  width: 1000;
-  height: 700;
+.main-menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 20%;
+}
+
+.menu-controls {
+  list-style: none;
 }

@@ -4,9 +4,26 @@
     <meta charset="UTF-8"/>
     <title>Document</title>
     <link href="/css/main.css" rel="stylesheet"/>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   </head>
   <body>
-    <canvas id="appCanvas"></canvas>
+    <div class="container">
+      <div class="canvas-wrap">
+        <canvas id="appCanvas"></canvas>
+      </div>
+      <nav class="main-menu">
+        <ul class="menu-controls">
+          <li>Currently online: <span class='online-counter'>0</span></li>
+          <li>
+            <span>Zoom:</span>
+            <button data-click="zoomIn">+</button>
+            <button data-click="zoomOut">-</button>
+          </li>
+          <li></li>
+          <li></li>
+        </ul>
+      </nav>
+    </div>
     <script src="lib/system.js"></script>
     <script src="config.js"></script>
     <script>System.import('./js/index')</script>

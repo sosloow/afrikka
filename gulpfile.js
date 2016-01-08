@@ -41,11 +41,15 @@ gulp.task('lint', function () {
   return gulp.src('./src/js/**/*.js')
     .pipe(eslint({
       rules: {
-        'no-console': 0
+        'no-console': 0,
+        'no-undef': 0
+      },
+      globals: {
+        Firebase: true
       },
       parser: 'babel-eslint',
       extends: 'eslint:recommended',
-      envs: ['commonjs', 'browser']
+      envs: ['browser']
     }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());
@@ -70,7 +74,7 @@ gulp.task('test', function (done) {
     singleRun: true
   }, done).start();
 });
- 
+
 gulp.task('watch', function () {
   gulp.watch(['./src/**/*'], ['lint', 'test', 'reload']);
 });
